@@ -6,6 +6,8 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , request = require('request')
+  , cheerio = require('cheerio')
   , path = require('path');
 
 var app = express();
@@ -27,8 +29,23 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+
 app.post('/compare', function(req, res){
-//  console.log("req.body: ", req.body);
+  var first_url = req.body.urls[0],
+    second_url = req.body.urls[1]
+  ;
+
+  request({uri: first_url}, function(err, response, body){
+    if(err && response.statusCode !== 200){console.log( 'Request error.' );}
+
+    var $ = cheerio.load(body)
+      , specs = $('#productSpecifications');
+    ;
+
+    console.log("specs: ", specs.html());
+  });
+
+  console.log("req.body: ", req.body);
   res.render('index', { title: 'Express' });
 });
 
