@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Enter URLs of two gadgets to compare:
+
+  form#compare_form(method='post', action='/compare')
+    label(for='name') Fist:
+    input(type='text',name='name',id='name')
+    label(for='email') Second:
+    input(type='text',name='email',id='email')
+    input(type='submit',name='submit',value='Submit').submit-button
