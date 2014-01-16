@@ -9,6 +9,7 @@
     "express": "3.2.0",
     "jade": "*",
     "cheerio": "*",
-    "request": "*"
+    "request": "*",
+    "q": "1.0.0"
   }
 }
