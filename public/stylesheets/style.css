@@ -10,3 +10,11 @@ a {
 .error {
   color: #B94A48;
 }
+
+table.fixed {
+  table-layout:fixed;
+}
+
+table.fixed td {
+  overflow: hidden;
+}
