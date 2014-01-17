@@ -1,0 +1,6 @@
+table
+  each val, title in specs
+    tr
+      td= title
+      td!= val[0] || '&mdash;'
+      td!= val[1] || '&mdash;'

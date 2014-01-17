@@ -4,9 +4,11 @@ block content
   h1= title
   p Enter URLs of two gadgets to compare:
 
-  form#compare_form(method='post', action='/compare')
+  form(method='post', action='/compare', data-role='urls_form')
     label(for='name') Fist:
     input(type='text',name='urls',id='first_url')
     label(for='email') Second:
     input(type='text',name='urls',id='second_url')
     input(type='submit',name='submit',value='Submit').submit-button
+
+  div(data-role='compare')
