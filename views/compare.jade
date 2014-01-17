@@ -1,6 +1,14 @@
-table
-  each val, title in specs
-    tr
-      td= title
-      td!= val[0] || '&mdash;'
-      td!= val[1] || '&mdash;'
+style(type='text/css')
+  table.fixed { table-layout:fixed; }
+  table.fixed td { overflow: hidden; }
+
+.table-responsive
+  table.table.table-striped.fixed
+    col(width='40ox')
+    col(width='40ox')
+    col(width='40ox')
+    each val, title in specs
+      tr
+        td!= title
+        td!= val[0] || '&mdash;'
+        td!= val[1] || '&mdash;'

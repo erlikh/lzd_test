@@ -1,14 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Enter URLs of two gadgets to compare:
+  .container
+    .col-lg-12
+      h1 Compare the gadgets
+      p Enter URLs of two gadgets to compare:
 
-  form(method='post', action='/compare', data-role='urls_form')
-    label(for='name') Fist:
-    input(type='text',name='urls',id='first_url')
-    label(for='email') Second:
-    input(type='text',name='urls',id='second_url')
-    input(type='submit',name='submit',value='Submit').submit-button
+    form(method='post', action='/compare', data-role='urls_form')
+      .form-group.col-md-6
+        //label(for='name') Fist:
+        input(type='text', name='urls', id='first_url', placeholder='First').form-control
 
-  div(data-role='compare')
+      .form-group.col-md-6
+        //label(for='email') Second:
+        input(type='text', name='urls', id='second_url', placeholder='Second').form-control
+
+      .col-md-12
+        input(type='submit', name='submit', value='Compare').btn.btn-default.btn-lg.btn-block
+
+    div(data-role='compare').col-md-12
